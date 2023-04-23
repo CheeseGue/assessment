@@ -1,7 +1,7 @@
 'use strict';
 const userNameInput = document.getElementById('user-name');
 const assessmentButton = document.getElementById('assessment');
-const resultDivision = document.getElementById('result-area');
+const resultDivided = document.getElementById('result-area');
 const tweetDivision = document.getElementById('tweet-area');
 
 // assessmentButton.onclick = function(){
@@ -23,15 +23,34 @@ assessmentButton.onclick = () => {
         return;
     }
 
-    resultDivision.innerText = '';
-    const header = document.createElement('h3');
-    header.innerText = '診断結果';
-    resultDivision.appendChild(header);
+    resultDivided.innerText = "";
+    // const header = document.createElement('h3');
+    // header.innerText = '診断結果';
+    // resultDivision.appendChild(header);
+
+    // const paragraph = document.createElement('p');
+    // const result = assessment(userName);
+    // paragraph.innerText = result;
+    // resultDivision.appendChild(paragraph);
+
+    const headerDivided = document.createElement('div');
+    headerDivided.setAttribute('class', 'card-header');
+    headerDivided.innerText = '診断結果';
+
+    const bodyDivided = document.createElement('div');
+    bodyDivided.setAttribute('class', 'card-body');
 
     const paragraph = document.createElement('p');
+    paragraph.setAttribute('class', 'card-text');
     const result = assessment(userName);
     paragraph.innerText = result;
-    resultDivision.appendChild(paragraph);
+    bodyDivided.appendChild(paragraph);
+
+    resultDivided.setAttribute('class', 'card');
+    resultDivided.setAttribute('style', 'max-width: 700px;')
+
+    resultDivided.appendChild(headerDivided);
+    resultDivided.appendChild(bodyDivided);
 
     tweetDivision.innerText = '';
     const anchor = document.createElement('a');
